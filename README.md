@@ -145,7 +145,7 @@ When you run a day's solution, you'll see output like:
 ## Progress
 
 Track your progress here:
-- [ ] Day 1
+- [⭐️ ⭐️] Day 1
 - [ ] Day 2
 - [ ] Day 3
 - [ ] Day 4
