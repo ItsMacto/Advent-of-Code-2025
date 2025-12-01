@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aoc2025"
+version = "1.0.0"
+description = "Advent of Code 2025 Solutions"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    {name = "Mac Howe", email = "mac@machowe.com"}
+]
+keywords = ["advent-of-code", "aoc"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[tool.uv]
+# UV configuration - uses requires-python from [project] section
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
