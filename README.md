@@ -2,6 +2,10 @@
 
 My solutions for [Advent of Code 2025](https://adventofcode.com/2025) and set up tools/utils.
 
+This year I am doing it again in Python with the hopes of going back and trying it again in go later. 
+
+A rule for myself is I am going to **use no AI besides copilot tab completions** and no hinting what I want to solve with comments. Only after I solve it my self will I go back and see better ways of doing it with an LLM. 
+
 ## Progress
 - Day 1 ⭐️ ⭐️
 - Day 2
