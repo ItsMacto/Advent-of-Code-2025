@@ -1,4 +1,5 @@
-from aoc2024.utils.utils import read_input
+# from aoc2024.utils.utils import read_input
+from aoc2025.utils.utils import read_input
 
 def star1():
     # data = read_input(fileName="test.txt")
@@ -44,71 +45,38 @@ def star1():
         total += v * i
     return total
 
+
+# it works! But its super slow lol
 def star2():
-    def get_smallest_index(blankMap, blankKeys, size):
-        value = float('inf')
-        dict = None
-        for key in blankKeys:
-            if key >= size:
-                if min(blankMap[key]) < value:
-                    value = min(blankMap[key])
-                    dict = key 
-        return value, dict
-
-    data = read_input(fileName="test.txt")
-    # data = read_input()
-    data = [int(digit) for digit in data[0]]
-    total = 0
-    length = 0 
-
-    for i in range(len(data)):
-        length += int(data[i])
-
-    # print(length)
-    disk = [0] * length
-    blankMap = {}
-    blankKeys = set()
-    for i in range(1, len(data), 2):
-        blankMap.setdefault(data[i], []).append(i)
-        blankKeys.add(data[i])
     
-    l, r = 0, len(data) - 1
-    lid, rid = 0, len(data) // 2
-    left = True
-    i = 0
-    while l <= r:
-        if left:
-            for _ in range(data[l]):
-                disk[i] = lid
-                i += 1
-            lid += 1
-            l += 1
-            l += data[l]
-            left = False
+    # data = read_input(test=True, split=False)
+    data = read_input( split=False)
+    data = [int(digit) for digit in data]
+    data_list = []
+    data_map = {}
+    for i, v in enumerate(data):
+        if i % 2 == 0:
+            data_map[i//2] = (len(data_list), v)
+            data_list.extend([i//2]* v)
         else:
-            size = data[r]
-            index, dict = get_smallest_index(blankMap, blankKeys, size)
-            if dict is not None and index < rid:
-                for j in range(data[r]):
-                    disk[index + j] = rid
-                if dict > size:
-                    blankMap[dict].remove(index)
-                    if blankMap[dict] == []:
-                        blankKeys.remove(dict)
-                    blankMap.setdefault(dict - size, []).append(index)
-                    blankKeys.add(dict - size)
-                else:
-                    blankMap[dict].remove(index)
-                    if blankMap[dict] == []:
-                        blankKeys.remove(dict)
-                r -= 2
-            l += 1
-            left = True
-            rid -= 1
-    print(disk)
+            data_list.extend([-1]* v)
+    # print(data_list)
     
-    for i, v in enumerate(disk):
-        total += v * i
+    for i, v in reversed(data_map.items()):
+        # print(i, v)
+        for k in range(0, v[0]):
+            if data_list[k:k+v[1]].count(-1) == v[1]:
+                data_list[k:k+v[1]] = [i]* v[1]
+                data_list[v[0]:v[0]+v[1]] = [-1]* v[1]
+                break
+        # print(data_list)
+        # print(i)
+    
+    
+    total = 0
+    for i, v in enumerate(data_list):
+        if v != -1:
+            total += v * i
     return total
 
 if __name__ == '__main__':
