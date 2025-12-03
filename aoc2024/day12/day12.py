@@ -55,8 +55,22 @@ def star1() -> int:
 
 
 def star2() -> int:
-    data = read_input()
-    # TODO: Implement star 2 solution
+    def num_prem_sides(point, grid):
+        r, c, val = point
+        prem_sides = 0
+        edges = []
+        for dr, dc, s in [(-1, 0, 'd'), (1, 0, 'u'), (0, -1, 'l'), (0, 1, 'r')]:
+            neighbor = grid_get(grid, r + dr, c + dc)
+            if neighbor != val:
+                edges.append(s)
+                
+        if len(edges) == 0:
+            return -1
+        
+        
+        
+    data = read_input(test=True)
+    
     return 0
 
 
