@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Optional
 import argparse
 from datetime import datetime
+import traceback
 
 
 def get_current_year() -> int:
@@ -190,12 +191,14 @@ def run_day(day: int, year: Optional[int] = None, test: bool = False) -> None:
         print(f"  ⭐ Star 1: {result1}")
     except Exception as e:
         print(f"  ❌ Star 1 failed: {e}")
+        traceback.print_exc()
 
     try:
         result2 = module.star2()
         print(f"  ⭐ Star 2: {result2}")
     except Exception as e:
         print(f"  ❌ Star 2 failed: {e}")
+        traceback.print_exc()
 
 
 
