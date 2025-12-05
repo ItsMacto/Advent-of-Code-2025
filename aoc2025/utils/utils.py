@@ -114,12 +114,11 @@ def grid_find(grid: List[List[Any]], target: Any) -> Optional[tuple[int, int]]:
         target: Value to find
 
     Returns:
-        Tuple of (row, col) or None if not found
     """
-    for row, row_data in enumerate(grid):
-        for col, cell in enumerate(row_data):
+    for y, row in enumerate(grid):
+        for x, cell in enumerate(row):
             if cell == target:
-                return (row, col)
+                return (x, y)
     return None
 
 
@@ -132,13 +131,13 @@ def grid_find_all(grid: List[List[Any]], target: Any) -> List[tuple[int, int]]:
         target: Value to find
 
     Returns:
-        List of (row, col) tuples
+        List of (x, y) tuples where target is found
     """
     results = []
-    for row, row_data in enumerate(grid):
-        for col, cell in enumerate(row_data):
+    for y, row_data in enumerate(grid):
+        for x, cell in enumerate(row_data):
             if cell == target:
-                results.append((row, col))
+                results.append((x, y))
     return results
 
 

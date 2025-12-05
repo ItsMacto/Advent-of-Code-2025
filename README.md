@@ -11,7 +11,7 @@ A rule for myself is I am going to **use no AI besides Copilot tab completions**
 - Day 2 ⭐️ ⭐️
 - Day 3 ⭐️ ⭐️
 - Day 4 ⭐️ ⭐️
-- Day 5
+- Day 5 ⭐️ ⭐️
 - Day 6
 - Day 7
 - Day 8
